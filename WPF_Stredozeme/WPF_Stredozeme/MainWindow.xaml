@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Label>SADSD</Label>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label FontFamily="{StaticResource Ring}">Lord of The Rings</Label>
+        <Button Width="150" Height="50" FontFamily="{StaticResource Ring}">Start game</Button>
     </Grid>
 </Window>
