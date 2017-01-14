@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Stredozeme.Classes;
 
 namespace WPF_Stredozeme
 {
@@ -23,6 +24,29 @@ namespace WPF_Stredozeme
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void StartGame(object sender, RoutedEventArgs e)
+        {
+            StartButton.Visibility = Visibility.Collapsed;
+            SelectMage.Visibility = Visibility.Visible;
+            SelectRanger.Visibility = Visibility.Visible;
+            TextLabel.Content = "Choose role";
+        }
+
+        private void StartRanger(object sender, RoutedEventArgs e)
+        {
+            Player ranger = new Player("Ranger", 1, 30, 300);
+            GameWindow x = new GameWindow(ranger);
+            x.Show();
+            this.Close();
+        }
+        private void StartMage(object sender, RoutedEventArgs e)
+        {
+            Player mage = new Player("Mage", 1, 50, 200);
+            GameWindow x = new GameWindow(mage);
+            x.Show();
+            this.Close();
         }
     }
 }

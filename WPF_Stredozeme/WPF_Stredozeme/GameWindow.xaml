@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPF_Stredozeme.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Stredozeme"
+        mc:Ignorable="d"
+        Title="Mountain of Smaug" Height="600" Width="800" MinHeight="350" MinWidth="525"
+        Background="Black">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Label x:Name="labl" Grid.ColumnSpan="3" FontSize="30" Foreground="Gold" HorizontalAlignment="Center" Padding="0,50,0,0" FontFamily="{StaticResource Ring}">
+            Mountain of Smaug
+        </Label>
+        <TextBlock Margin="50,0,50,0" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center" FontSize="15" Foreground="Gold" FontFamily="{StaticResource Ring}"></TextBlock>
+
+        <Button Content="Continue" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,0,30" Grid.Column="1" Grid.Row="2"></Button>
+    </Grid>
+</Window>
