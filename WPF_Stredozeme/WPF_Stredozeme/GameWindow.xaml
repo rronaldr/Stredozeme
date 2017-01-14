@@ -19,12 +19,12 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         
-        <Label x:Name="labl" Grid.ColumnSpan="3" FontSize="30" Foreground="Gold" HorizontalAlignment="Center" Padding="0,50,0,0" FontFamily="{StaticResource Ring}">
+        <Label Grid.ColumnSpan="3" FontSize="30" Foreground="Gold" HorizontalAlignment="Center" Padding="0,50,0,0" FontFamily="{StaticResource Ring}">
             Mountain of Smaug
         </Label>
-        <TextBlock Margin="50,0,50,0" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center" FontSize="15" Foreground="Gold" FontFamily="{StaticResource Ring}"></TextBlock>
+        <TextBlock x:Name="storytext" Margin="50,0,50,0" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center" FontSize="15" Foreground="Gold" FontFamily="{StaticResource Ring}"></TextBlock>
 
-        <Button Content="Continue" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Click="NextTextClick" x:Name="nextText" Content="Continue" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
         <Button Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
         <Button Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,0,30" Grid.Column="1" Grid.Row="2"></Button>
     </Grid>

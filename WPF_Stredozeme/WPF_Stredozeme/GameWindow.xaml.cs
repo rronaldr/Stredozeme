@@ -20,16 +20,27 @@ namespace WPF_Stredozeme
     /// </summary>
     public partial class GameWindow : Window
     {
-        public List<string> story;
+        int i = 0;
+        List<string> story = new List<string>();
         public GameWindow()
         {
             InitializeComponent();
-            List<string> story = new List<string>();
+            
         }
 
         public GameWindow(Player x)
         {
             InitializeComponent();
+            story.Add("Hello " + x.Name + " you decided to go on an adventure. There's a message about some events in Erebor. I hope that the fearsome dragon Smaugh didn't awake. Many have tried to kill him and take the treasure that lies in Erebor, left there by the Dwarves.");
+            story.Add("Your path will not be easy, there are rumors that Orcs and Skuruk's are coming from Moria lead by the most feared Orc Azog the Defiler.");
+            story.Add("Here take some");
+            storytext.Text = story[0];
+
+        }
+        private void NextTextClick(object sender, RoutedEventArgs e)
+        {
+            i++;
+            storytext.Text = story[i];
             
         }
     }
