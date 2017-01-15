@@ -11,10 +11,10 @@ namespace WPF_Stredozeme.Classes
         private string _name, _img;
         private int _level, _attackdmg, _health, _currHealth;
 
-        public Orc(int level, int attackdmg, int health)
+        public Orc(string image, int level, int attackdmg, int health)
         {
             _name = "Orc";
-            _img = "Images/orc.jpg";
+            _img = image;
             _level = level;
             _attackdmg = attackdmg;
             _health = health;

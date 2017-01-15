@@ -23,10 +23,10 @@ namespace WPF_Stredozeme
         int i = 0;
         List<string> story = new List<string>();
         private Player hrac;
-        Orc enemy1 = new Orc(1, 25, 120);
-        Orc enemy2 = new Orc(3, 50, 250);
-        Uruk enemy3 = new Uruk(5, 40, 400);
-        Uruk enemy4 = new Uruk(7, 50, 500);
+        Orc enemy1 = new Orc("Images/orc1.jpg",1, 25, 120);
+        Orc enemy2 = new Orc("Images/orc2.jpg", 3, 50, 250);
+        Uruk enemy3 = new Uruk("Images/uruk1.jpg", 5, 40, 400);
+        Uruk enemy4 = new Uruk("Images/uruk2.jpg", 7, 50, 500);
 
         public GameWindow()
         {
@@ -36,11 +36,11 @@ namespace WPF_Stredozeme
         {
             if (x.Equals("Mage"))
             {
-                hrac = new Player(x, 1, 50, 200);
+                hrac = new Player(x, "Images/mage.jpg", 1, 50, 200);
             }
             else
             {
-                hrac = new Player(x, 1, 35, 350);
+                hrac = new Player(x, "Images/ranger.jpg", 1, 35, 350);
             }   
             InitializeComponent();
             story.Add("Hello " + hrac.Name + " you decided to go on an adventure. There's a message about some events in Erebor. I hope that the fearsome dragon Smaugh didn't awake. Many have tried to kill him and take the treasure that lies in Erebor, left there by the Dwarves.");
@@ -65,7 +65,7 @@ namespace WPF_Stredozeme
 
         private void YesClick(object sender, RoutedEventArgs e)
         {
-            
+            Combat();
         }
 
         private void NoClick(object sender, RoutedEventArgs e)
@@ -73,6 +73,10 @@ namespace WPF_Stredozeme
             GameOver();   
         }
 
+        private void Combat()
+        {   
+            ShowComabtUI();
+        }
         private void ShowDecisionButtons()
         {
             BtnY.Content = "Yes";
@@ -92,8 +96,7 @@ namespace WPF_Stredozeme
             nextText.Visibility = Visibility.Collapsed;
             BtnN.Visibility = Visibility.Collapsed;
             BtnY.Visibility = Visibility.Collapsed;
-        }
-
+        }   
         private void GameOver()
         {
             HideButtons();
@@ -102,5 +105,38 @@ namespace WPF_Stredozeme
             
         }
         //private void Died()
+        private void ShowComabtUI()
+        {
+            HeadTxt.Content = "Battle";
+            storytext.Text = "";
+            HideButtons();
+            image1.Visibility = Visibility.Visible;
+            image2.Visibility = Visibility.Visible;
+            label1.Visibility = Visibility.Visible;
+            label2.Visibility = Visibility.Visible;
+            label3.Visibility = Visibility.Visible;
+            label4.Visibility = Visibility.Visible;
+            label5.Visibility = Visibility.Visible;
+            label6.Visibility = Visibility.Visible;
+            hltprgbar1.Visibility = Visibility.Visible;
+            hltprgbar2.Visibility = Visibility.Visible;
+            lvlprgbar1.Visibility = Visibility.Visible;
+            lvlprgbar2.Visibility = Visibility.Visible;
+            combatBtn1.Visibility = Visibility.Visible;
+            combatBtn2.Visibility = Visibility.Visible;
+
+            var converter = new ImageSourceConverter();
+            image1.Source = (ImageSource)converter.ConvertFromString("pack://application:,,,/" + hrac.Image);
+            image2.Source = (ImageSource)converter.ConvertFromString("pack://application:,,,/" + enemy1.Image);
+            label1.Content = hrac.Name;
+            label4.Content = enemy1.Name;
+            label3.Content = "Level: " + hrac.Level.ToString();
+            label6.Content = "Level: " + enemy1.Level.ToString();
+            hltprgbar1.Maximum = hrac.Health;
+            hltprgbar2.Maximum = enemy1.Health;
+            hltprgbar1.Value = hrac.CurrHealth;
+            hltprgbar2.Value = enemy1.CurrHealth;
+            lvlprgbar1.Value = hrac.Level;
+        }
     }
 }
