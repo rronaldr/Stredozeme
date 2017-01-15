@@ -24,9 +24,9 @@
         </Label>
         <TextBlock x:Name="storytext" Margin="50,0,50,0" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center" FontSize="15" Foreground="Gold" FontFamily="{StaticResource Ring}"></TextBlock>
 
-        <Button Click="NextTextClick" x:Name="nextText" Content="Continue" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
-        <Button Click="YesClick" x:Name="BtnY" Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
-        <Button Click="NoClick" x:Name="BtnN" Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,0,30" Grid.Column="1" Grid.Row="2"></Button>
+        <Button BorderThickness="2" Background="DarkGray" Click="NextTextClick" x:Name="nextText" Content="Continue" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Click="YesClick" Background="DarkGray" x:Name="BtnY" Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" FontSize="18" FontFamily="{StaticResource Ring}" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Click="NoClick" Background="DarkGray" x:Name="BtnN" Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" FontSize="18" FontFamily="{StaticResource Ring}" VerticalAlignment="Bottom" Margin="0,0,0,30" Grid.Column="1" Grid.Row="2"></Button>
         
         <!--Player info-->
         <Image Visibility="Collapsed" x:Name="image1" Source="{Binding hrac.Image}" Grid.RowSpan="2"></Image>
@@ -34,9 +34,9 @@
         <Label Visibility="Collapsed" x:Name="label2"  Grid.Row="3" Margin="0,40,0,0" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">
             Health
         </Label>
-        <ProgressBar Minimum="0" Visibility="Collapsed" x:Name="hltprgbar1" Grid.Row="3" Margin="0,0,0,20" Height="15" Width="230" BorderBrush="Gray" Background="Red"></ProgressBar>
+        <ProgressBar x:Name="hltprgbar1" BorderThickness="2" Minimum="0" Visibility="Collapsed"  Grid.Row="3" Margin="0,0,0,20" Height="15" Width="230" BorderBrush="Gray" Background="Red"></ProgressBar>
         <Label Visibility="Collapsed" x:Name="label3" Grid.Row="3" Margin="0,0,0,40" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White"></Label>
-        <ProgressBar Minimum="0" Maximum="100" Visibility="Collapsed" x:Name="lvlprgbar1"  Grid.Row="3" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="15" Width="230" BorderBrush="Gray" Background="Gold"></ProgressBar>
+        <ProgressBar x:Name="lvlprgbar1" BorderThickness="2" Minimum="0" Maximum="100" Visibility="Collapsed"  Grid.Row="3" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="15" Width="230" BorderBrush="Gray" Background="Gold"></ProgressBar>
 
         <!--Enemy info-->
         <Image Visibility="Collapsed" x:Name="image2" Grid.Column="3" Grid.RowSpan="2"></Image>
@@ -44,12 +44,12 @@
         <Label Visibility="Collapsed" x:Name="label5" Grid.Column="3" Grid.Row="3" Margin="0,40,0,0" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">
             Health
         </Label>
-        <ProgressBar Minimum="0" Visibility="Collapsed" x:Name="hltprgbar2" Grid.Column="3" Grid.Row="3" Margin="0,0,0,20" Height="15" Width="230" BorderBrush="Gray" Background="Red"></ProgressBar>
+        <ProgressBar x:Name="hltprgbar2" BorderThickness="2" Minimum="0" Visibility="Collapsed"  Grid.Column="3" Grid.Row="3" Margin="0,0,0,20" Height="15" Width="230" BorderBrush="Gray" Background="Red"></ProgressBar>
         <Label Visibility="Collapsed" x:Name="label6" Grid.Column="3"  Grid.Row="3" Margin="0,0,0,40" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White"></Label>
-        <ProgressBar Minimum="0" Maximum="100" Visibility="Collapsed" x:Name="lvlprgbar2" Grid.Column="3" Grid.Row="3" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="15" Width="230" BorderBrush="Gray" Background="Gold"></ProgressBar>
+        <ProgressBar x:Name="lvlprgbar2" Minimum="0" BorderThickness="2" Maximum="100" Visibility="Collapsed"  Grid.Column="3" Grid.Row="3" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="15" Width="230" BorderBrush="Gray" Background="Gold"></ProgressBar>
         
         <!-- Player Controls -->
-        <Button Visibility="Collapsed" x:Name="combatBtn1" Content="Attack" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20,40,20,0" Grid.Column="1" Grid.Row="2"></Button>
-        <Button Visibility="Collapsed" x:Name="combatBtn2" Content="Special Ability" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,0,20,20" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Background="DarkGray" Visibility="Collapsed" x:Name="combatBtn1" Content="Attack" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20,40,20,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Background="DarkGray" Visibility="Collapsed" x:Name="combatBtn2" Content="Special Ability" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,0,20,20" Grid.Column="1" Grid.Row="2"></Button>
     </Grid>
 </Window>
