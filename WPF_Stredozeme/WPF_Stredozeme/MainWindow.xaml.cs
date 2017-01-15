@@ -36,15 +36,15 @@ namespace WPF_Stredozeme
 
         private void StartRanger(object sender, RoutedEventArgs e)
         {
-            Player ranger = new Player("Ranger", 1, 30, 300);
-            GameWindow x = new GameWindow(ranger);
+            string role = "Ranger";
+            GameWindow x = new GameWindow(role);
             x.Show();
             this.Close();
         }
         private void StartMage(object sender, RoutedEventArgs e)
         {
-            Player mage = new Player("Mage", 1, 50, 200);
-            GameWindow x = new GameWindow(mage);
+            string role = "Mage";
+            GameWindow x = new GameWindow(role);
             x.Show();
             this.Close();
         }

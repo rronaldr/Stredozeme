@@ -19,13 +19,40 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         
-        <Label Grid.ColumnSpan="3" FontSize="30" Foreground="Gold" HorizontalAlignment="Center" Padding="0,50,0,0" FontFamily="{StaticResource Ring}">
+        <Label x:Name="HeadTxt" Grid.ColumnSpan="3" FontSize="30" Foreground="Gold" HorizontalAlignment="Center" Padding="0,50,0,0" FontFamily="{StaticResource Ring}">
             Mountain of Smaug
         </Label>
         <TextBlock x:Name="storytext" Margin="50,0,50,0" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center" FontSize="15" Foreground="Gold" FontFamily="{StaticResource Ring}"></TextBlock>
 
-        <Button Click="NextTextClick" x:Name="nextText" Content="Continue" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
-        <Button Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
-        <Button Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,0,30" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Click="NextTextClick" x:Name="nextText" Visibility="Hidden" Content="Continue" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Click="YesClick" x:Name="BtnY" Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Click="NoClick" x:Name="BtnN" Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,0,30" Grid.Column="1" Grid.Row="2"></Button>
+        <!--Player info-->
+        <Image x:Name="image1" Source="Images/ranger.jpg" Grid.RowSpan="2"></Image>
+        <Label x:Name="label1" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">Name</Label>
+        <Label x:Name="label2"  Grid.Row="3" Margin="0,40,0,0" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">
+            Health
+        </Label>
+        <ProgressBar x:Name="combat4" Grid.Row="3" Margin="0,0,0,20" Height="15" Width="230" BorderBrush="Gray" Background="Red"></ProgressBar>
+        <Label x:Name="combat5" Grid.Row="3" Margin="0,0,0,40" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">
+            Level
+        </Label>
+        <ProgressBar  Grid.Row="3" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="15" Width="230" BorderBrush="Gray" Background="Gold"></ProgressBar>
+
+        <!--Enemy info-->
+        <Image Source="Images/orc.jpg" Grid.Column="3" Grid.RowSpan="2"></Image>
+        <Label Grid.Column="3" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">Name</Label>
+        <Label Grid.Column="3" Grid.Row="3" Margin="0,40,0,0" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">
+            Health
+        </Label>
+        <ProgressBar Grid.Column="3" Grid.Row="3" Margin="0,0,0,20" Height="15" Width="230" BorderBrush="Gray" Background="Red"></ProgressBar>
+        <Label Grid.Column="3"  Grid.Row="3" Margin="0,0,0,40" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">
+            Level
+        </Label>
+        <ProgressBar Grid.Column="3" Grid.Row="3" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="15" Width="230" BorderBrush="Gray" Background="Gold"></ProgressBar>
+        
+        <!-- Player Controls -->
+        <Button Content="Attack" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20,30,20,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Content="Special Ability" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,0,20,30" Grid.Column="1" Grid.Row="2"></Button>
     </Grid>
 </Window>

@@ -8,12 +8,13 @@ namespace WPF_Stredozeme.Classes
 {
     class Boss
     {
-        private string _name;
+        private string _name, _img;
         private int _level, _attackdmg, _health, _currHealth;
 
         public Boss(string name, int level, int attackdmg, int health)
         {
             _name = name;
+            _img = "Images/boss.jpg";
             _level = level;
             _attackdmg = attackdmg;
             _health = health;
@@ -22,6 +23,12 @@ namespace WPF_Stredozeme.Classes
         public string Name
         {
             get { return _name; }
+            set { _name = value; }
+        }
+
+        public string Image
+        {
+            get { return _img; }
             set { _name = value; }
         }
 
