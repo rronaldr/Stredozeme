@@ -23,9 +23,9 @@ namespace WPF_Stredozeme
         int i = 0;
         List<string> story = new List<string>();
         private Player hrac;
-        Orc enemy1 = new Orc("Images/orc1.jpg",1, 25, 120);
+        Orc enemy1 = new Orc("Images/orc.jpg", 1, 25, 120);
         Orc enemy2 = new Orc("Images/orc2.jpg", 3, 50, 250);
-        Uruk enemy3 = new Uruk("Images/uruk1.jpg", 5, 40, 400);
+        Uruk enemy3 = new Uruk("Images/uruk.jpg", 5, 40, 400);
         Uruk enemy4 = new Uruk("Images/uruk2.jpg", 7, 50, 500);
 
         public GameWindow()
@@ -65,7 +65,7 @@ namespace WPF_Stredozeme
 
         private void YesClick(object sender, RoutedEventArgs e)
         {
-            Combat();
+            ShowComabtUI();
         }
 
         private void NoClick(object sender, RoutedEventArgs e)
@@ -74,7 +74,7 @@ namespace WPF_Stredozeme
         }
 
         private void Combat()
-        {   
+        {
             ShowComabtUI();
         }
         private void ShowDecisionButtons()

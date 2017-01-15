@@ -39,7 +39,7 @@
         <ProgressBar Minimum="0" Maximum="100" Visibility="Collapsed" x:Name="lvlprgbar1"  Grid.Row="3" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="15" Width="230" BorderBrush="Gray" Background="Gold"></ProgressBar>
 
         <!--Enemy info-->
-        <Image Visibility="Collapsed" x:Name="image2" Source="Images/orc.jpg" Grid.Column="3" Grid.RowSpan="2"></Image>
+        <Image Visibility="Collapsed" x:Name="image2" Grid.Column="3" Grid.RowSpan="2"></Image>
         <Label Visibility="Collapsed" x:Name="label4" Grid.Column="3" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">Name</Label>
         <Label Visibility="Collapsed" x:Name="label5" Grid.Column="3" Grid.Row="3" Margin="0,40,0,0" HorizontalAlignment="Center" FontSize="20" FontFamily="{StaticResource Ring}" Foreground="White">
             Health
