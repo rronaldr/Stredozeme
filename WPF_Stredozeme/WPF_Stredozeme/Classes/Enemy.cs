@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace WPF_Stredozeme.Classes
 {
-    public class Orc
+    public class Enemy
     {
         private string _name, _img;
         private int _level, _attackdmg, _health, _currHealth;
 
-        public Orc(string image, int level, int attackdmg, int health)
+        public Enemy(string name, string image, int level, int attackdmg, int health)
         {
-            _name = "Orc";
+            _name = name;
             _img = image;
             _level = level;
             _attackdmg = attackdmg;
             _health = health;
+            _currHealth = _health;
         }
 
         public string Name

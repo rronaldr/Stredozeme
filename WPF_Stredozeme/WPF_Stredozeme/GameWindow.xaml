@@ -27,6 +27,7 @@
         <Button BorderThickness="2" Background="DarkGray" Click="NextTextClick" x:Name="nextText" Content="Continue" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
         <Button Click="YesClick" Background="DarkGray" x:Name="BtnY" Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" FontSize="18" FontFamily="{StaticResource Ring}" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button>
         <Button Click="NoClick" Background="DarkGray" x:Name="BtnN" Visibility="Hidden" Height="50" HorizontalAlignment="Stretch" FontSize="18" FontFamily="{StaticResource Ring}" VerticalAlignment="Bottom" Margin="0,0,0,30" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Click="ExitApplication" x:Name="exitBtn" Visibility="Collapsed" BorderThickness="2" Background="DarkGray" Content="Exit" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,30,0,0" Grid.Column="1" Grid.Row="2"></Button> 
         
         <!--Player info-->
         <Image Visibility="Collapsed" x:Name="image1" Source="{Binding hrac.Image}" Grid.RowSpan="2"></Image>
@@ -49,7 +50,7 @@
         <ProgressBar x:Name="lvlprgbar2" Minimum="0" BorderThickness="2" Maximum="100" Visibility="Collapsed"  Grid.Column="3" Grid.Row="3" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="15" Width="230" BorderBrush="Gray" Background="Gold"></ProgressBar>
         
         <!-- Player Controls -->
-        <Button Background="DarkGray" Visibility="Collapsed" x:Name="combatBtn1" Content="Attack" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20,40,20,0" Grid.Column="1" Grid.Row="2"></Button>
-        <Button Background="DarkGray" Visibility="Collapsed" x:Name="combatBtn2" Content="Special Ability" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,0,20,20" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Click="BasicAttack" x:Name="combatBtn1" Background="DarkGray" Visibility="Collapsed" Content="Attack" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20,40,20,0" Grid.Column="1" Grid.Row="2"></Button>
+        <Button Click="SpecialAttack" x:Name="combatBtn2" Background="DarkGray" Visibility="Collapsed" Content="Special Ability" FontSize="18" FontFamily="{StaticResource Ring}" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,0,20,20" Grid.Column="1" Grid.Row="2"></Button>
     </Grid>
 </Window>

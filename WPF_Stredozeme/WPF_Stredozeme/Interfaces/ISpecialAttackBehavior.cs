@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPF_Stredozeme.Classes;
 
 namespace WPF_Stredozeme.Interfaces
 {
     interface ISpecialAttackBehavior
     {
+        void SpecialAttack(Player p, Enemy e);
     }
 }
