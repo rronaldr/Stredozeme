@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -25,9 +26,9 @@ namespace WPF_Stredozeme
         public MainWindow()
         {
             InitializeComponent();
-            mediaElement1.Source = new Uri("Sounds\\soundtrack.mp3", UriKind.Relative);
-            mediaElement1.Play();
-
+            Stream str = Properties.Resources.soundtrack;
+            SoundPlayer snd = new SoundPlayer(str);
+            snd.Play();
         }
         /// <summary>
         /// Shows roles to choose after clicking start button
@@ -36,6 +37,7 @@ namespace WPF_Stredozeme
         /// <param name="e"></param>
         private void StartGame(object sender, RoutedEventArgs e)
         {
+            
             StartButton.Visibility = Visibility.Collapsed;
             SelectMage.Visibility = Visibility.Visible;
             SelectRanger.Visibility = Visibility.Visible;
