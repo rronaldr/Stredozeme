@@ -22,17 +22,22 @@ namespace WPF_Stredozeme
     /// </summary>
     public partial class GameWindow : Window
     {
+        //Counter
         int i = 0;
+        //Counts how many fight were won
         public int fightswon = 0;
+        //Collection of story texts
         List<string> story = new List<string>();
+        //Creating objects
         private Player hrac;
         Enemy enemy1 = new Enemy("Orc" ,"Images/orc.jpg", 1, 25, 120);
         Enemy enemy2 = new Enemy("Orc","Images/orc2.jpg", 3, 50, 250);
         Enemy enemy3 = new Enemy("Uruk","Images/uruk.jpg", 5, 45, 400);
         Enemy enemy4 = new Enemy("Uruk","Images/uruk2.jpg", 7, 50, 500);
         Enemy enemy5 = new Enemy("Uruk", "Images/uruk2.jpg", 7, 50, 500);
+        //Enemy collection
         List<Enemy> enemies = new List<Enemy>();
-        
+
 
         public GameWindow()
         {       
@@ -40,6 +45,7 @@ namespace WPF_Stredozeme
         }
         public GameWindow(string x)
         {
+            //Usage of passed argument to this window
             if (x.Equals("Mage"))
             {
                 hrac = new Player(x, "Images/mage.jpg", 1, 50, 350);
@@ -50,12 +56,14 @@ namespace WPF_Stredozeme
             }   
             InitializeComponent();
 
+            //Adding objects of class Enemy into collection 'enemies'
             enemies.Add(enemy1);
             enemies.Add(enemy2);
             enemies.Add(enemy3);
             enemies.Add(enemy4);
             enemies.Add(enemy5);
 
+            //Adding story text into collection
             story.Add("Hello " + hrac.Name + " you decided to go on an adventure. There's a message about some events in Erebor. I hope that the fearsome dragon Smaugh didn't awake. Many have tried to kill him and take the treasure that lies in Erebor, left there by the Dwarves.");
             story.Add("Your path will not be easy, there are rumors that Orcs and Skuruk's are coming from Moria lead by the most feared orc Azog the Defiler.");
             story.Add("Your adventure starts in Mirkwood. Elves live in Mirkwood and some tell that they've seen a mystery wizard wandering around Mirkwood.");
@@ -77,6 +85,7 @@ namespace WPF_Stredozeme
         }
         private void NextTextClick(object sender, RoutedEventArgs e)
         {
+            //When to show story points
             i++;
             if (i == 4 || i == 6 || i == 11 || i == 14)
             {
@@ -96,22 +105,26 @@ namespace WPF_Stredozeme
 
         private void YesClick(object sender, RoutedEventArgs e)
         {
+            //When clicked on "Yes" initiates combat
             Combat();
         }
 
         private void NoClick(object sender, RoutedEventArgs e)
         {
+            //When clicked on "No" game over
             GameOver();   
         }
 
         private void Combat()
         {
+            //Initializing combat
             SetCombatStats();
             ShowComabtUI();
         }
 
         private void BasicAttack(object sender, RoutedEventArgs e)
         {
+            //Button that does Basic attack
             IBasicAttackBeahvior attack = new PlayerBasicAttack();
             attack.Attack(hrac, enemies[fightswon]);
 
@@ -119,6 +132,7 @@ namespace WPF_Stredozeme
         }
         private void SpecialAttack(object sender, RoutedEventArgs e)
         {
+            //Button that does Special attack
             ISpecialAttackBehavior specialAttack = new PlayerSpecialAbility();
             specialAttack.SpecialAttack(hrac, enemies[fightswon]);
 
@@ -127,6 +141,7 @@ namespace WPF_Stredozeme
 
         private void EnemyAttack()
         {
+            //Enemy do Basic or Special attack depending on what the result of enemy.currentHealt mod 11 is
             int dice = enemies[fightswon].CurrHealth % 11;
             if (dice == 0 || dice == 2 || dice == 4 || dice == 5 || dice == 6 || dice == 7 || dice == 9)
             {
@@ -144,6 +159,7 @@ namespace WPF_Stredozeme
         {
             EnemyAttack();
 
+            //What happens when player wins fight
             if (enemies[fightswon].CurrHealth <= 0)
             {
                 fightswon++;
@@ -152,15 +168,18 @@ namespace WPF_Stredozeme
                 ShowContinueButton();
                 storytext.Text = story[i];
             }
+            //If player looses
             else if (enemies[fightswon].CurrHealth > 0 && hrac.CurrHealth <= 0)
             {
                 Died();
             }
+            //Changing value of progressbar's
             hltprgbar1.Value = hrac.CurrHealth;
             hltprgbar2.Value = enemies[fightswon].CurrHealth;
 
             ILevelUpBehavior levelup = new PlayerLevelUpBehavior();
 
+            //Initiates levelup behavior after every fight won
             if (fightswon == 1)
             {
                 levelup.LevelUp(hrac);
@@ -173,7 +192,9 @@ namespace WPF_Stredozeme
                 levelup.LevelUp(hrac);
             }
         }
-
+        /// <summary>
+        /// Uses player's and enemies defense techniques
+        /// </summary>
         private void Defense()
         {
             IDefenseBehavior playerDefense = new PlayerDefense();
@@ -182,6 +203,9 @@ namespace WPF_Stredozeme
             IDefenseBehavior enemyDefense = new EnemyDefense();;
             enemyDefense.Defend(hrac, enemies[fightswon]);
         }
+        /// <summary>
+        /// Displays exit button, if clicked closes application
+        /// </summary>
         private void GameOver()
         {
             HideButtons();
@@ -190,7 +214,9 @@ namespace WPF_Stredozeme
             storytext.Text = "You were ambushed by the enemy. There was no way for you to defend yourself";
             exitBtn.Visibility = Visibility.Visible;
         }
-
+        /// <summary>
+        /// Displays exit button, if clicked closes application
+        /// </summary>
         private void Died()
         {
             HideButtons();
@@ -199,6 +225,9 @@ namespace WPF_Stredozeme
             storytext.Text = "You were defeated";
             exitBtn.Visibility = Visibility.Visible;
         }
+        /// <summary>
+        /// Shows Yes and No buttons and hides Continue button
+        /// </summary>
         private void ShowDecisionButtons()
         {
             BtnY.Content = "Yes";
@@ -207,6 +236,9 @@ namespace WPF_Stredozeme
             BtnN.Visibility = Visibility.Visible;
             BtnY.Visibility = Visibility.Visible;
         }
+        /// <summary>
+        /// Shows Continue button and hides Decision buttons
+        /// </summary>
         private void ShowContinueButton()
         {
             HeadTxt.Content = "Mountain of Smaug";
@@ -214,18 +246,27 @@ namespace WPF_Stredozeme
             BtnN.Visibility = Visibility.Collapsed;
             BtnY.Visibility = Visibility.Collapsed;
         }
+        /// <summary>
+        /// Hides all buttons
+        /// </summary>
         private void HideButtons()
         {
             nextText.Visibility = Visibility.Collapsed;
             BtnN.Visibility = Visibility.Collapsed;
             BtnY.Visibility = Visibility.Collapsed;
         }
-
+        /// <summary>
+        /// Button clicked function, exits application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExitApplication(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
+        /// <summary>
+        /// Sets images, labels, progress bars
+        /// </summary>
         private void SetCombatStats()
         {
             var converter = new ImageSourceConverter();
@@ -244,6 +285,9 @@ namespace WPF_Stredozeme
             hltprgbar2.Value = enemies[fightswon].CurrHealth;
             lvlprgbar2.Value = enemies[fightswon].Level;
         }
+        /// <summary>
+        /// Shows combat UI
+        /// </summary>
         private void ShowComabtUI()
         {
             HeadTxt.Content = "Battle";
@@ -264,7 +308,9 @@ namespace WPF_Stredozeme
             combatBtn1.Visibility = Visibility.Visible;
             combatBtn2.Visibility = Visibility.Visible;  
         }
-
+        /// <summary>
+        /// Hides combat UI
+        /// </summary>
         private void HideComabtUI()
         {
             image1.Visibility = Visibility.Collapsed;

@@ -10,7 +10,7 @@ namespace WPF_Stredozeme.Behaviors
 {
     class EnemySpecialAttack : ISpecialAttackBehavior
     {/// <summary>
-    /// 
+    /// Random enemy dmg from a range. Special attack deals more damage when close to full health
     /// </summary>
     /// <param name="class Player"></param>
     /// <param name="class Enemy"></param>

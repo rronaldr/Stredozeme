@@ -10,6 +10,11 @@ namespace WPF_Stredozeme.Behaviors
 {
     class PlayerDefense : IDefenseBehavior
     {
+        /// <summary>
+        /// Same as Enemy defense
+        /// </summary>
+        /// <param name="class Player"></param>
+        /// <param name="class Enemy"></param>
         public void Defend(Player p, Enemy e)
         {
             int mod = p.CurrHealth % 11;

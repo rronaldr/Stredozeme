@@ -8,6 +8,9 @@ using WPF_Stredozeme.Interfaces;
 
 namespace WPF_Stredozeme.Behaviors
 {
+    /// <summary>
+    /// Same as enemy BasicAttackBeh. Player can have higher critical damage.
+    /// </summary>
     class PlayerBasicAttack : IBasicAttackBeahvior
     {
         public void Attack(Player player, Enemy e)

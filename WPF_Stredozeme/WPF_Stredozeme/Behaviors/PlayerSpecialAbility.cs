@@ -10,6 +10,11 @@ namespace WPF_Stredozeme.Behaviors
 {
     class PlayerSpecialAbility : ISpecialAttackBehavior
     {
+        /// <summary>
+        /// Same as enemy special attack. Player has higher critical damage.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="e"></param>
         public void SpecialAttack(Player p, Enemy e)
         {
             int attackdmgmin = p.AttackDmg - 10;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,8 +25,16 @@ namespace WPF_Stredozeme
         public MainWindow()
         {
             InitializeComponent();
+            Uri uri = new Uri(@"pack://application:,,,/Soundtrack/soundtrack.wav");
+            var player = new MediaPlayer();
+            player.Open(uri);
+            player.Play();
         }
-
+        /// <summary>
+        /// Shows roles to choose after clicking start button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartGame(object sender, RoutedEventArgs e)
         {
             StartButton.Visibility = Visibility.Collapsed;
@@ -33,7 +42,11 @@ namespace WPF_Stredozeme
             SelectRanger.Visibility = Visibility.Visible;
             TextLabel.Content = "Choose role";
         }
-
+        /// <summary>
+        /// If Ranger chose, then close this window and opens a new game window with passed string argument "ranger"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartRanger(object sender, RoutedEventArgs e)
         {
             string role = "Ranger";
@@ -41,6 +54,11 @@ namespace WPF_Stredozeme
             x.Show();
             this.Close();
         }
+        /// <summary>
+        /// If Ranger chose, then close this window and opens a new game window with passed string argument "mage"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartMage(object sender, RoutedEventArgs e)
         {
             string role = "Mage";
