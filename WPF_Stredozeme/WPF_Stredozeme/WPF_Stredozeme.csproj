@@ -129,8 +129,9 @@
     <Resource Include="Images\orc2.jpg" />
     <Resource Include="Images\uruk2.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="Soundtrack\soundtrack.wav" />
+    <Content Include="Sounds\soundtrack.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

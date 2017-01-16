@@ -25,10 +25,9 @@ namespace WPF_Stredozeme
         public MainWindow()
         {
             InitializeComponent();
-            Uri uri = new Uri(@"pack://application:,,,/Soundtrack/soundtrack.wav");
-            var player = new MediaPlayer();
-            player.Open(uri);
-            player.Play();
+            mediaElement1.Source = new Uri("Sounds\\soundtrack.mp3", UriKind.Relative);
+            mediaElement1.Play();
+
         }
         /// <summary>
         /// Shows roles to choose after clicking start button
