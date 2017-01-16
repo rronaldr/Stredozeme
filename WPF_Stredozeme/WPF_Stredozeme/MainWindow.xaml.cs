@@ -26,6 +26,7 @@ namespace WPF_Stredozeme
         public MainWindow()
         {
             InitializeComponent();
+            //Adding sound to source and playing sound
             Stream str = Properties.Resources.soundtrack;
             SoundPlayer snd = new SoundPlayer(str);
             snd.Play();
