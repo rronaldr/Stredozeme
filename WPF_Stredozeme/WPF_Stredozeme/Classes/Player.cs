@@ -13,7 +13,7 @@ namespace WPF_Stredozeme.Classes
         /// Player class constructor
         /// </summary>
         private string _name, _image;
-        private int _level, _xp,_attackdmg, _health, _currHealth;
+        private int _level ,_attackdmg, _health, _currHealth;
 
         public Player(string name, string image, int level, int attackdmg, int health)
         {

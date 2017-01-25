@@ -5,5 +5,14 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <FontFamily x:Key="Ring">pack://application:,,,/Fonts/#Ringbearer</FontFamily>
+
+        <BitmapImage x:Key="Ranger" UriSource="Images/ranger.jpg"></BitmapImage>
+        <BitmapImage x:Key="Mage" UriSource="Images/mage.jpg"></BitmapImage>
+        <BitmapImage x:Key="Orc1" UriSource="Images/orc.jpg"></BitmapImage>
+        <BitmapImage x:Key="Orc2" UriSource="Images/orc2.jpg"></BitmapImage>
+        <BitmapImage x:Key="Uruk1" UriSource="Images/uruk.jpg"></BitmapImage>
+        <BitmapImage x:Key="Uruk2" UriSource="Images/uruk2.jpg"></BitmapImage>
+        <BitmapImage x:Key="Boss" UriSource="Images/boss.jpg"></BitmapImage>
+        <BitmapImage x:Key="Smaug" UriSource="Images/smaug.jpg"></BitmapImage>
     </Application.Resources>
 </Application>

@@ -18,9 +18,9 @@ namespace WPF_Stredozeme.Behaviors
         public void Defend(Player p, Enemy e)
         {
             int mod = p.CurrHealth % 11;
-            if (mod == 5 || mod == 10)
+            if (mod == 1 || mod == 4 || mod == 9 || mod == 10)
             {
-                p.CurrHealth = p.CurrHealth + e.AttackDmg;
+                p.CurrHealth = p.CurrHealth - e.AttackDmg;
             }
         }
     }

@@ -20,7 +20,7 @@ namespace WPF_Stredozeme.Behaviors
             int mod = e.CurrHealth % 11;
             if (mod == 5 || mod == 10)
             {
-                e.CurrHealth = e.CurrHealth + p.AttackDmg;
+                e.CurrHealth = e.CurrHealth - p.AttackDmg;
             }
         }
     }

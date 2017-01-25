@@ -30,11 +30,14 @@ namespace WPF_Stredozeme
         List<string> story = new List<string>();
         //Creating objects
         private Player hrac;
-        Enemy enemy1 = new Enemy("Orc" ,"Images/orc.jpg", 1, 25, 120);
-        Enemy enemy2 = new Enemy("Orc","Images/orc2.jpg", 3, 50, 250);
-        Enemy enemy3 = new Enemy("Uruk","Images/uruk.jpg", 5, 45, 400);
-        Enemy enemy4 = new Enemy("Uruk","Images/uruk2.jpg", 7, 50, 500);
-        Enemy enemy5 = new Enemy("Uruk", "Images/uruk2.jpg", 7, 50, 500);
+        Enemy enemy1 = new Enemy("Orc" ,"Orc1", 1, 25, 120);
+        Enemy enemy2 = new Enemy("Orc", "Orc2", 3, 50, 250);
+        Enemy enemy3 = new Enemy("Uruk", "Uruk1", 5, 45, 400);
+        Enemy enemy4 = new Enemy("Uruk", "Uruk2", 9, 50, 600);
+        Enemy enemy5 = new Enemy("Nazgul", "Boss", 10, 70, 650);
+        Enemy enemy6 = new Enemy("Smaug", "Smaug", 99, 25, 120);
+        Enemy enemy7 = new Enemy("DASDA", "Orc1", 11, 10000, 10);
+
         //Enemy collection
         List<Enemy> enemies = new List<Enemy>();
 
@@ -48,11 +51,11 @@ namespace WPF_Stredozeme
             //Usage of passed argument to this window
             if (x.Equals("Mage"))
             {
-                hrac = new Player(x, "Images/mage.jpg", 1, 50, 350);
+                hrac = new Player(x, "Mage", 1, 60, 350);
             }
             else
             {
-                hrac = new Player(x, "Images/ranger.jpg", 1, 35, 500);
+                hrac = new Player(x, "Ranger", 1, 35, 450);
             }   
             InitializeComponent();
 
@@ -62,6 +65,8 @@ namespace WPF_Stredozeme
             enemies.Add(enemy3);
             enemies.Add(enemy4);
             enemies.Add(enemy5);
+            enemies.Add(enemy6);
+            enemies.Add(enemy7);
 
             //Adding story text into collection
             story.Add("Hello " + hrac.Name + " you decided to go on an adventure. There's a message about some events in Erebor. I hope that the fearsome dragon Smaugh didn't awake. Many have tried to kill him and take the treasure that lies in Erebor, left there by the Dwarves.");
@@ -78,8 +83,17 @@ namespace WPF_Stredozeme
             story.Add("Well done" + hrac.Name + "you handled that group with ease. You gained 1 level.");
             story.Add("You see a tower in the middle of the city. You should climb it to find a way in the mountain.");
             story.Add("You've reached the tower, but there's another Uruk group guarding the entrance. They have spotted you. Will you fight them?");
-            story.Add("You truly became a skilled warrior. Smaugh should be no match for you. You get out of Ravenhill and decide to go to Erebor.");
-            story.Add("STORY TO BE CONTINUED");
+            story.Add("You truly became a skilled warrior. Smaugh should be no match for you. You get out of Ravenhill and decide to go to Erebor. Before you go to Erebor you make a camp and rest for a while.");
+            story.Add("Yours health was restored");
+            story.Add("Now you stand before the bridge to the entrance of Erebor. You hear mighty wind coming you way. A edge cutting sound. You cover your ears and on the horizon you see a Nazgul riding on his fearsome Fellbeast.");
+            story.Add("Nazgul lands with the beast and comes to you. If you are going to enter Erebor you have to deafeat the Nazgul king. Do you want to fight?");
+            story.Add("That was a tough one. The Nazgul king dodged your last attack and flew away back to Minas Morgul.");
+            story.Add("You see some Dwarven runes on the door's. It's a warning that the ones who wish to live, shall go away and never come back. You don't fear anything and decide to enter.");
+            story.Add("You see treasures everywhere lying. In the distance you hear a loud breathing. You go closer to the sound to find the source of it.");
+            story.Add("When you enter the Great Hall you discover the source. It's Smaug sleeping covered in gold. You see the Arkstone, pride of the Dwarven king before he was forced to leave, because of Smaug.");
+            story.Add("You sneak carefully near Smaug and you reach your hand for the Arcstone. Smaug wakes up from his sleep and looks for the Arcstone.");
+            story.Add("You need to fight, otherwise you die.");
+            story.Add("Smaug burned you in flames. There's no chance anybody is killing Smaug.");
 
             storytext.Text = story[0];  
         }
@@ -87,11 +101,11 @@ namespace WPF_Stredozeme
         {
             //When to show story points
             i++;
-            if (i == 4 || i == 6 || i == 11 || i == 14)
+            if (i == 4 || i == 6 || i == 11 || i == 14 || i == 18 || i == 24)
             {
                 ShowDecisionButtons();
             }
-            else if (i == 16)
+            else if (i == 25)
             {
                 HideButtons();
                 exitBtn.Visibility = Visibility.Visible;
@@ -101,6 +115,7 @@ namespace WPF_Stredozeme
                 ShowContinueButton();
                 storytext.Text = story[i];
             }
+            Heal();
         }
 
         private void YesClick(object sender, RoutedEventArgs e)
@@ -135,7 +150,6 @@ namespace WPF_Stredozeme
             //Button that does Special attack
             ISpecialAttackBehavior specialAttack = new PlayerSpecialAbility();
             specialAttack.SpecialAttack(hrac, enemies[fightswon]);
-
             CombatActions();
         }
 
@@ -155,10 +169,20 @@ namespace WPF_Stredozeme
             }
         }
 
+        private void Heal()
+        {
+            if (i == 15)
+            {
+                hrac.CurrHealth = hrac.Health;
+            }
+        }
         private void CombatActions()
         {
+            if (fightswon == 5)
+            {
+                fightswon = 1;
+            }
             EnemyAttack();
-
             //What happens when player wins fight
             if (enemies[fightswon].CurrHealth <= 0)
             {
@@ -191,6 +215,7 @@ namespace WPF_Stredozeme
             {
                 levelup.LevelUp(hrac);
             }
+            Defense();
         }
         /// <summary>
         /// Uses player's and enemies defense techniques
@@ -270,8 +295,8 @@ namespace WPF_Stredozeme
         private void SetCombatStats()
         {
             var converter = new ImageSourceConverter();
-            image1.Source = (ImageSource)converter.ConvertFromString("pack://application:,,,/" + hrac.Image);
-            image2.Source = (ImageSource)converter.ConvertFromString("pack://application:,,,/" + enemies[fightswon].Image);
+            image1.Source = Application.Current.Resources[hrac.Image] as BitmapImage;
+            image2.Source = Application.Current.Resources[enemies[fightswon].Image] as BitmapImage;
 
             label1.Content = hrac.Name;
             label3.Content = "Level: " + hrac.Level.ToString();

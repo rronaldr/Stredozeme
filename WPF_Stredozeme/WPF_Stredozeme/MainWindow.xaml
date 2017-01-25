@@ -18,13 +18,13 @@
         <Button x:Name="StartButton" Click="StartGame" Grid.ColumnSpan="2" BorderBrush="DimGray" FontSize="20" BorderThickness="2" Width="250" Foreground="Gold" Background="#49311c" Height="75" FontFamily="{StaticResource Ring}">Start game</Button>
         <Button Click="StartRanger" Visibility="Collapsed" x:Name="SelectRanger" Margin="0,150,0,0" BorderThickness="0" Width="300" Height="400" Background="Black">
             <StackPanel>
-                <Image MinHeight="350" MinWidth="300" Source="Images/ranger.jpg"></Image>
+                <Image MinHeight="350" MinWidth="300" Source="{StaticResource Ranger}"></Image>
                 <TextBlock FontSize="30" FontFamily="{StaticResource Ring}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gold">Ranger</TextBlock>
             </StackPanel>
         </Button>
         <Button Click="StartMage" Visibility="Collapsed" x:Name="SelectMage" Grid.Column="1" Margin="0,150,0,0" BorderThickness="0" Width="300" Height="400" Background="Black">
             <StackPanel>
-                <Image Width="400" Source="Images/mage.jpg" Height="354"/>
+                <Image Width="400" Source="{StaticResource Mage}" Height="354"/>
                 <TextBlock FontSize="30" FontFamily="{StaticResource Ring}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gold"><Run Text="Mage"/></TextBlock>
             </StackPanel>
         </Button>

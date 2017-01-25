@@ -21,7 +21,7 @@ namespace WPF_Stredozeme.Behaviors
             int attackdmgplus = p.AttackDmg + 10;
             Random random = new Random();
             int randomdmg = random.Next(attackdmgmin, attackdmgplus);
-            int skilldmg = (randomdmg / 3) * (p.CurrHealth / 90);
+            int skilldmg = (randomdmg / 3) * ((p.Health - p.CurrHealth) / 50);
             e.CurrHealth = e.CurrHealth - skilldmg;
         }
     }
