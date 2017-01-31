@@ -27,9 +27,9 @@ namespace WPF_Stredozeme
         {
             InitializeComponent();
             //Adding sound to source and playing sound
-            Stream str = Properties.Resources.soundtrack;
-            SoundPlayer snd = new SoundPlayer(str);
-            snd.Play();
+            //Stream str = Properties.Resources.soundtrack;
+            //SoundPlayer snd = new SoundPlayer(str);
+            //snd.Play();
         }
         /// <summary>
         /// Shows roles to choose after clicking start button

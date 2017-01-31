@@ -30,11 +30,11 @@ namespace WPF_Stredozeme
         List<string> story = new List<string>();
         //Creating objects
         private Player hrac;
-        Enemy enemy1 = new Enemy("Orc" ,"Orc1", 1, 25, 120);
-        Enemy enemy2 = new Enemy("Orc", "Orc2", 3, 50, 250);
-        Enemy enemy3 = new Enemy("Uruk", "Uruk1", 5, 45, 400);
-        Enemy enemy4 = new Enemy("Uruk", "Uruk2", 9, 50, 600);
-        Enemy enemy5 = new Enemy("Nazgul", "Boss", 10, 70, 650);
+        Enemy enemy1 = new Enemy("Orc" ,"Orc1", 1, 25, 350);
+        Enemy enemy2 = new Enemy("Orc", "Orc2", 3, 50, 500);
+        Enemy enemy3 = new Enemy("Uruk", "Uruk1", 5, 45, 700);
+        Enemy enemy4 = new Enemy("Uruk", "Uruk2", 9, 50, 850);
+        Enemy enemy5 = new Enemy("Nazgul", "Boss", 10, 70, 1500);
         Enemy enemy6 = new Enemy("Smaug", "Smaug", 99, 25, 120);
         Enemy enemy7 = new Enemy("DASDA", "Orc1", 11, 10000, 10);
 
@@ -51,11 +51,11 @@ namespace WPF_Stredozeme
             //Usage of passed argument to this window
             if (x.Equals("Mage"))
             {
-                hrac = new Player(x, "Mage", 1, 60, 350);
+                hrac = new Player(x, "Mage", 1, 60, 850);
             }
             else
             {
-                hrac = new Player(x, "Ranger", 1, 35, 450);
+                hrac = new Player(x, "Ranger", 1, 35, 1300);
             }   
             InitializeComponent();
 
@@ -76,7 +76,11 @@ namespace WPF_Stredozeme
             story.Add("You defeated your first enemy. You gained 2 levels. Your health and damage increased");
             story.Add("You continue trough the forest. In the distance you see some old ruined house. Do you want to explore the house?");
             story.Add("You defeated the Orc. You gained 1 level.");
-            story.Add("You have discovered Radegast's house. Radegast is one of 5 wizards in Middle-Earth. It seems like nobody has been here for a while. You decide to countinue your journey.");
+            story.Add("You have discovered Radagast's house. Radegast is one of 5 wizards in Middle-Earth. It seems like nobody has been here for a while.");
+            story.Add("As you proceed on your journey you hear some strange noise as a hoard of rabbits were coming your way. You turn around and you see a sledge powered by rabbits. The Brown wizard Radagast rides to you.");
+            story.Add("You speak with Radagast for a few hours. When you are about to leave his house he asks you about your adventure. After he finds out you're going to kill Smaug he offers you an enchanted shield or a magic staff.");
+            story.Add("Do you want to take the shield or the staff?");
+            story.Add("");
             story.Add("You get to the end of the forest from which you can see Erebor. There's a abadoned human city Ravenhill. To get to the mountain's entrance you have to go trough the city.");
             story.Add("You have entered the city.");
             story.Add("At the entrance of Ravenhill you can see a group of Uruk's. You can't go around them, you need to pass trough them. Do you want to engage the Uruk group?");
@@ -101,14 +105,27 @@ namespace WPF_Stredozeme
         {
             //When to show story points
             i++;
-            if (i == 4 || i == 6 || i == 11 || i == 14 || i == 18 || i == 24)
+            if (i == 4 || i == 6 || i == 15 || i == 18 || i == 22 || i == 28)
             {
                 ShowDecisionButtons();
             }
-            else if (i == 25)
+            else if (i == 31)
             {
                 HideButtons();
                 exitBtn.Visibility = Visibility.Visible;
+            }
+            else if (i == 11)
+            {
+                BtnY.Content = "Staff";
+                BtnN.Content = "Shield";
+                nextText.Visibility = Visibility.Collapsed;
+                BtnN.Visibility = Visibility.Visible;
+                BtnY.Visibility = Visibility.Visible;
+                if (i == 12)
+                {
+                    BtnY.Content = "Yes";
+                    BtnN.Content = "No";
+                }
             }
             else
             {
@@ -121,13 +138,29 @@ namespace WPF_Stredozeme
         private void YesClick(object sender, RoutedEventArgs e)
         {
             //When clicked on "Yes" initiates combat
-            Combat();
+            
+            if (i != 11)
+            { 
+                Combat();
+            }else if (i == 11)
+            {
+                hrac.AttackDmg = (hrac.AttackDmg / 100) * 15;
+                ShowContinueButton();
+            }
         }
 
         private void NoClick(object sender, RoutedEventArgs e)
         {
             //When clicked on "No" game over
-            GameOver();   
+            if (i != 11)
+            {
+                GameOver();
+            }
+            else if (i == 11)
+            {
+                hrac.Health = (hrac.Health / 100) * 15;
+                ShowContinueButton();
+            }
         }
 
         private void Combat()
@@ -171,7 +204,7 @@ namespace WPF_Stredozeme
 
         private void Heal()
         {
-            if (i == 15)
+            if (i == 21)
             {
                 hrac.CurrHealth = hrac.Health;
             }
@@ -237,6 +270,14 @@ namespace WPF_Stredozeme
             HideComabtUI();
             HeadTxt.Content = "GAME OVER";
             storytext.Text = "You were ambushed by the enemy. There was no way for you to defend yourself";
+            exitBtn.Visibility = Visibility.Visible;
+        }
+        private void GameOverGollum()
+        {
+            HideButtons();
+            HideComabtUI();
+            HeadTxt.Content = "GAME OVER";
+            storytext.Text = "You didn't answer Gollums riddle correctly, he smashed you in the head with a rock";
             exitBtn.Visibility = Visibility.Visible;
         }
         /// <summary>
