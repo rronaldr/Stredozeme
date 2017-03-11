@@ -36,7 +36,7 @@ namespace WPF_Stredozeme
         Enemy enemy4 = new Enemy("Uruk", "Uruk2", 9, 50, 850);
         Enemy enemy5 = new Enemy("Nazgul", "Boss", 10, 70, 1500);
         Enemy enemy6 = new Enemy("Smaug", "Smaug", 99, 25, 120);
-        Enemy enemy7 = new Enemy("DASDA", "Orc1", 11, 10000, 10);
+        Enemy enemy7 = new Enemy("DASDADD", "Orc1", 11, 10000, 10);
 
         //Enemy collection
         List<Enemy> enemies = new List<Enemy>();
