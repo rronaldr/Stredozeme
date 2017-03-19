@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -9,8 +10,10 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfAnimatedGif;
 using WPF_Stredozeme.Behaviors;
 using WPF_Stredozeme.Classes;
 using WPF_Stredozeme.Interfaces;
@@ -108,8 +111,9 @@ namespace WPF_Stredozeme
             if (i == 4 || i == 6 || i == 15 || i == 18 || i == 22 || i == 28)
             {
                 ShowDecisionButtons();
+                SetGif();
             }
-            else if (i == 31)
+            else if (i == 29)
             {
                 HideButtons();
                 exitBtn.Visibility = Visibility.Visible;
@@ -337,7 +341,7 @@ namespace WPF_Stredozeme
         {
             var converter = new ImageSourceConverter();
             image1.Source = Application.Current.Resources[hrac.Image] as BitmapImage;
-            image2.Source = Application.Current.Resources[enemies[fightswon].Image] as BitmapImage;
+            //image2.Source = Application.Current.Resources[enemies[fightswon].Image] as BitmapImage;
 
             label1.Content = hrac.Name;
             label3.Content = "Level: " + hrac.Level.ToString();
@@ -393,6 +397,19 @@ namespace WPF_Stredozeme
             lvlprgbar2.Visibility = Visibility.Collapsed;
             combatBtn1.Visibility = Visibility.Collapsed;
             combatBtn2.Visibility = Visibility.Collapsed;
+        }
+
+        private void SetGif()
+        {
+            //ddsd
+            string y = enemies[fightswon].Image.ToLower();
+            var controller = ImageBehavior.GetAnimationController(image2);
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = new Uri(@"/Images/" + y +".gif", UriKind.RelativeOrAbsolute);
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource(image2, image);
+            ImageBehavior.SetRepeatBehavior(image2, new RepeatBehavior(1));
         }
     }
 }

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Stredozeme"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Title="Mountain of Smaug" Height="600" Width="800" MinHeight="350" MinWidth="525"
         Background="Black">
@@ -12,8 +13,8 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
-
+        <Image x:Name="Fire"  Margin="0,269,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2" gif:ImageBehavior.AnimatedSource="{StaticResource Ohen}"></Image>
+        <Image x:Name="Smoke" Visibility="Hidden" Grid.RowSpan="2" Grid.ColumnSpan="2" gif:ImageBehavior.AutoStart="False" gif:ImageBehavior.RepeatBehavior="1x" gif:ImageBehavior.AnimatedSource="{StaticResource Smoke}"></Image>
         <Label x:Name="TextLabel" Grid.ColumnSpan="2" FontSize="40" Foreground="Gold" HorizontalAlignment="Center" Padding="0,50,0,0" FontFamily="{StaticResource Ring}">Mountain of Smaug</Label>
         <Button x:Name="StartButton" Click="StartGame" Grid.ColumnSpan="2" BorderBrush="DimGray" FontSize="20" BorderThickness="2" Width="250" Foreground="Gold" Background="#49311c" Height="75" FontFamily="{StaticResource Ring}">Start game</Button>
         <Button Click="StartRanger" Visibility="Collapsed" x:Name="SelectRanger" Margin="0,150,0,0" BorderThickness="0" Width="300" Height="400" Background="Black">

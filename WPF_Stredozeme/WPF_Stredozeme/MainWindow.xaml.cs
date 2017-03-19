@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Stredozeme.Classes;
+using WpfAnimatedGif;
 
 namespace WPF_Stredozeme
 {
@@ -26,10 +27,6 @@ namespace WPF_Stredozeme
         public MainWindow()
         {
             InitializeComponent();
-            //Adding sound to source and playing sound
-            //Stream str = Properties.Resources.soundtrack;
-            //SoundPlayer snd = new SoundPlayer(str);
-            //snd.Play();
         }
         /// <summary>
         /// Shows roles to choose after clicking start button
@@ -38,11 +35,14 @@ namespace WPF_Stredozeme
         /// <param name="e"></param>
         private void StartGame(object sender, RoutedEventArgs e)
         {
-            
+            var controller = ImageBehavior.GetAnimationController(Smoke);
+            Fire.Visibility = Visibility.Hidden;
             StartButton.Visibility = Visibility.Collapsed;
             SelectMage.Visibility = Visibility.Visible;
             SelectRanger.Visibility = Visibility.Visible;
             TextLabel.Content = "Choose role";
+            Smoke.Visibility = Visibility.Visible;
+            controller.Play();
         }
         /// <summary>
         /// If Ranger chose, then close this window and opens a new game window with passed string argument "ranger"
@@ -53,6 +53,7 @@ namespace WPF_Stredozeme
         {
             string role = "Ranger";
             GameWindow x = new GameWindow(role);
+
             x.Show();
             this.Close();
         }

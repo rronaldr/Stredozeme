@@ -49,6 +49,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.14\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -107,6 +110,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\RINGM___.TTF" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,25 +121,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\orc.jpg" />
-    <Resource Include="Images\uruk.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\mage.jpg" />
     <Resource Include="Images\ranger.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\orc2.jpg" />
-    <Resource Include="Images\uruk2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\soundtrack.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\smaug.jpg" />
+    <Resource Include="Images\ohen.gif" />
+    <Resource Include="Images\smoke2.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\boss.jpg" />
+    <Resource Include="Images\boss.gif" />
+    <Resource Include="Images\orc1.gif" />
+    <Resource Include="Images\orc2.gif" />
+    <Resource Include="Images\smaug.gif" />
+    <Resource Include="Images\uruk1.gif" />
+    <Resource Include="Images\uruk2.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
